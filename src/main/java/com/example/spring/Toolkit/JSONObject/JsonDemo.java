@@ -1,11 +1,16 @@
 package com.example.spring.Toolkit.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
+import org.json.Cookie;
+import org.json.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.testng.annotations.Test;
 
 /*
@@ -79,8 +84,64 @@ public class JsonDemo {
     @Test
     void Creating_JSONArray_Directly_From_JSONString() {
         JSONArray ja = new JSONArray("[true, \"lorem ipsum\", 215]");
+        System.out.println(ja);
     }
 
 
+    @Test
+    void Creating_JSONArray_Directly_From_a_Collection() {
+        List<String> list = new ArrayList<>();
+        list.add("California");
+        list.add("Texas");
+        list.add("Hawaii");
+        list.add("Alaska");
+
+        JSONArray ja = new JSONArray(list);
+        // ["California","Texas","Hawaii","Alaska"]
+    }
+
+
+    @Test
+    void JSONTokener() {
+        JSONTokener jt = new JSONTokener("lorem");
+
+        while(jt.more()) {
+            System.out.println(String.valueOf(jt.next()));
+        }
+    }
+
+
+    @Test
+    void Converting_a_Cookie_String_into_a_JSONObject() {
+        String cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+        JSONObject cookieJO = Cookie.toJSONObject(cookie);
+        System.out.println(cookieJO);
+    }
+
+
+    @Test
+    void Converting_a_JSONObject_into_Cookie_String() {
+        String cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+        JSONObject cookieJO = Cookie.toJSONObject(cookie);
+        String cookieStr = Cookie.toString(cookieJO);
+        System.out.println(cookieStr);
+    }
+
+
+    @Test
+    void Converting_JSONObject_to_HTTP_Header() {
+        JSONObject jo = new JSONObject();
+        jo.put("Method", "POST");
+        jo.put("Request-URI", "https://www.example.com/");
+        jo.put("HTTP-Version", "HTTP/1.1");
+        String httpStr = HTTP.toString(jo);
+        System.out.println(httpStr);
+    }
+
+    @Test
+    void Converting_HTTP_Header_String_Back_to_JSONObject() {
+        JSONObject obj = HTTP.toJSONObject("POST \"http://www.example.com/\" HTTP/1.1");
+        System.out.println(obj);
+    }
 }
 

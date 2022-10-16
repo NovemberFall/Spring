@@ -56,6 +56,31 @@ public class JsonDemo {
         ja.put(Boolean.TRUE);
         ja.put("lorem ipsum");
 
-        System.out.println(ja);
+        JSONObject jo = new JSONObject();
+        jo.put("name", "jon doe");
+        jo.put("age", "22");
+        jo.put("city", "chicago");
+
+        ja.put(jo);
     }
+    /*
+    [
+        true,
+        "lorem ipsum",
+        {
+            "city": "chicago",
+            "name": "jon doe",
+            "age": "22"
+        }
+    ]
+    */
+
+
+    @Test
+    void Creating_JSONArray_Directly_From_JSONString() {
+        JSONArray ja = new JSONArray("[true, \"lorem ipsum\", 215]");
+    }
+
+
 }
+

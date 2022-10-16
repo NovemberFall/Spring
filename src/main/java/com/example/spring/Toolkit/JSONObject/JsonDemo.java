@@ -56,11 +56,6 @@ public class JsonDemo {
         ja.put(Boolean.TRUE);
         ja.put("lorem ipsum");
 
-        JSONObject jo = new JSONObject();
-        jo.put("name", "jon doe");
-        jo.put("age", "22");
-        jo.put("city", "chicago");
-
-        ja.put(jo);
+        System.out.println(ja);
     }
 }

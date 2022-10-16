@@ -1,0 +1,2 @@
+to create a new file by newBufferedWriter
+Append str

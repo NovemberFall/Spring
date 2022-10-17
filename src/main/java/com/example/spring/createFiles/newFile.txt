@@ -1,2 +1,5 @@
-to create a new file by newBufferedWriter
+to create a new file by newBufferedWriter | Jim Zhang
 Append str
+Java 8 | Stream str
+Strings
+End...

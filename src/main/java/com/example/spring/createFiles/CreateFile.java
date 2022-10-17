@@ -35,7 +35,7 @@ public class CreateFile {
         //to create a new file by newBufferedWriter
         //to use try-catch-resources auto close stream, don't need manually close
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
-            writer.write("to create a new file by newBufferedWriter");
+            writer.write("to create a new file by newBufferedWriter | Jim Zhang");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,6 +45,9 @@ public class CreateFile {
                              StandardCharsets.UTF_8,
                              StandardOpenOption.APPEND)) {
             writer.write("\nAppend str");
+            writer.write("\nJava 8 | Stream str");
+            writer.write("\nStrings");
+            writer.write("\nEnd...");
         } catch (IOException e) {
             e.printStackTrace();
         }

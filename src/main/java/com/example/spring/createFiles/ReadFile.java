@@ -2,6 +2,7 @@ package com.example.spring.createFiles;
 
 import org.testng.annotations.Test;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -99,6 +100,50 @@ public class ReadFile {
 
         String strs = Files.readString(Paths.get(fileName));
         System.out.println(strs);
+    }
+
+
+
+
+    /*
+        if your JDK isn't 11, 但是你仍然想一次性读取
+    */
+    @Test
+    void testReadFile5() throws IOException {
+        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+
+        byte[] bytes = Files.readAllBytes(Paths.get(fileName));
+
+        String content = new String(bytes, StandardCharsets.UTF_8);
+        System.out.println(content);
+    }
+
+
+
+
+
+    /*
+    最经典的管道流的方式
+     */
+    @Test
+    void testReadFile6() throws IOException {
+        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+
+        //带缓冲区的读取流，默认缓冲区8K
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+
+        //For JAVA 8
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
     }
 }
 

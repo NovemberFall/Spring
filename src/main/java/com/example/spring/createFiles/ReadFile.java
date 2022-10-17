@@ -19,7 +19,8 @@ public class ReadFile {
 
     @Test
     void testReadFile() throws FileNotFoundException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
 
         try (Scanner scanner = new Scanner(new FileReader(fileName))) {
             while (scanner.hasNextLine()) {
@@ -36,7 +37,8 @@ public class ReadFile {
             }
         }
 
-        fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\file5.txt";
+//        fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\file5.txt";
+        fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/file5.txt";
         try (Scanner sc = new Scanner(new FileReader(fileName))) {
             sc.useDelimiter("\\|");
             while (sc.hasNextInt()) {
@@ -51,8 +53,8 @@ public class ReadFile {
      */
     @Test
     void testReadFile2() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
-
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
         // 读取文件中的内容到stream中，按行读取
         Stream<String> lines = Files.lines(Paths.get(fileName));
 
@@ -81,7 +83,8 @@ public class ReadFile {
     */
     @Test
     void testReadFile3() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
 
         List<String> lines = Files.readAllLines(Paths.get(fileName),
                 StandardCharsets.UTF_8);
@@ -93,14 +96,14 @@ public class ReadFile {
     /*
         JDK 11 开始提供的办法，读取文件不能超过2G，与内存息息相关
     */
-    @Test
-    void testReadFile4() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
-
-
-        String strs = Files.readString(Paths.get(fileName));
-        System.out.println(strs);
-    }
+//    @Test
+//    void testReadFile4() throws IOException {
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+////        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
+//
+//        String strs = Files.readString(Paths.get(fileName));
+//        System.out.println(strs);
+//    }
 
 
 
@@ -110,7 +113,8 @@ public class ReadFile {
     */
     @Test
     void testReadFile5() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
 
         byte[] bytes = Files.readAllBytes(Paths.get(fileName));
 
@@ -127,8 +131,8 @@ public class ReadFile {
      */
     @Test
     void testReadFile6() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
-
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
         //带缓冲区的读取流，默认缓冲区8K
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;

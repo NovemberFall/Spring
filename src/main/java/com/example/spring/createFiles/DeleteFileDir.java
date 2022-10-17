@@ -15,26 +15,36 @@ import java.util.stream.Stream;
 
 public class DeleteFileDir {
     /*
-    data
-      |--test1
-            |--test2
-                |== test2.log
-                |--test3
-                    |==test3.log
-                    |--test4
-                        |--test5
+            data
+              |--test1
+                    |--test2
+                        |== test2.log
+                        |--test3
+                            |==test3.log
+                            |--test4
+                                |--test5
      */
+
+//    // for windows
+//    private void createMoreFiles() throws IOException {
+//        Files.createDirectories(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test3\\test4\\test5\\"));
+//        Files.write(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test2.log"), "hello".getBytes());
+//        Files.write(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test3\\test3.log"), "hello".getBytes());
+//    }
+
+    // for mac
     private void createMoreFiles() throws IOException {
-        Files.createDirectories(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test3\\test4\\test5\\"));
-        Files.write(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test2.log"), "hello".getBytes());
-        Files.write(Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2\\test3\\test3.log"), "hello".getBytes());
+        Files.createDirectories(Paths.get("/Users/Git/Spring/src/test/test1/test2/test3/test4/test5/"));
+        Files.write(Paths.get("/Users/Git/Spring/src/test/test1/test2/test2.log"), "hello".getBytes());
+        Files.write(Paths.get("/Users/Git/Spring/src/test/test1/test2/test3/test3.log"), "hello".getBytes());
     }
 
 
     @Test
     void testDeleteFileDir5() throws IOException {
         createMoreFiles();
-        Path path = Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
+//        Path path = Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
+        Path path = Paths.get("/Users/Git/Spring/src/test/test1/test2");
 
         Files.walkFileTree(path,
                 new SimpleFileVisitor<Path>() {
@@ -61,8 +71,8 @@ public class DeleteFileDir {
     @Test
     void testDeleteFileDir6() throws IOException {
         createMoreFiles();
-        Path path = Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
-
+//        Path path = Paths.get("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
+        Path path = Paths.get("/Users/Git/Spring/src/test/test1/test2");
         try (Stream<Path> walk = Files.walk(path)) {
             walk.sorted(Comparator.reverseOrder())
                     .forEach(DeleteFileDir::deleteDirectoryStream);
@@ -83,7 +93,8 @@ public class DeleteFileDir {
     @Test
     void testDeleteFileDir7() throws IOException {
         createMoreFiles();
-        File file = new File("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
+//        File file = new File("C:\\Users\\Git\\GitHub\\Spring\\src\\test\\test1\\test2");
+        File file = new File("/Users/Git/Spring/src/test/test1/test2");
         deleteDirectoryLegacyIO(file);
     }
 

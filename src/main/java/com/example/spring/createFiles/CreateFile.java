@@ -26,7 +26,8 @@ public class CreateFile {
     @Test
     void testCreateFile1() {
         // win
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
 
         // mac
 //        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile.txt";
@@ -58,20 +59,19 @@ public class CreateFile {
      */
     @Test
     void testCreateFile2() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile2.txt";
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile2.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile2.txt";
 
         //From JDK 1.5
         try(PrintWriter writer = new PrintWriter(fileName, "UTF-8")) {
             writer.println("Hello World!");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
         }
 
         // From JAVA 10, 支持使用StandardCharacter指定字符集
         // 这种适合一行一行写入数据
-        try (PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8)) {
+        try (PrintWriter writer = new PrintWriter(fileName, String.valueOf(StandardCharsets.UTF_8))) {
             writer.println("first line");
             writer.println("second line");
         }
@@ -82,8 +82,8 @@ public class CreateFile {
      */
     @Test
     void testCreateFile3() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile3.txt";
-
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile3.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile3.txt";
         File file = new File(fileName);
         if (file.createNewFile()) {
             System.out.println("Create File3 successfully!");
@@ -98,8 +98,8 @@ public class CreateFile {
 
     @Test
     void testCreateFile4() throws IOException {
-        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile4.txt";
-
+//        String fileName = "C:\\Users\\Git\\GitHub\\Spring\\src\\main\\java\\com\\example\\spring\\createFiles\\newFile4.txt";
+        String fileName = "/Users/Git/Spring/src/main/java/com/example/spring/createFiles/newFile4.txt";
         try (FileOutputStream fos = new FileOutputStream(fileName);
              OutputStreamWriter osw = new OutputStreamWriter(fos);
              BufferedWriter bw = new BufferedWriter(osw);

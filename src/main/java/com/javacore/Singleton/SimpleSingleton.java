@@ -1,4 +1,4 @@
-package com.example.spring.Singleton;
+package com.javacore.Singleton;
 
 public class SimpleSingleton {
     private static SimpleSingleton simpleSingleton = new SimpleSingleton();

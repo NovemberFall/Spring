@@ -1,4 +1,4 @@
-package com.example.spring.Singleton;
+package com.javacore.Singleton;
 
 public class ThreadSafeSingleton {
     private static ThreadSafeSingleton instance;

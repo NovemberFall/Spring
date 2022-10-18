@@ -214,12 +214,5 @@ public class SortMapDemo {
 		employeeMap.entrySet().stream().sorted(
 				Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary).reversed())
 		).forEach(System.out::println);
-		/*
-		注意以上几句：
-			- Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary))
-				- 这里Map 是一个interface, Entry is a nested interface, a member interface in Map
-				- public static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K, V>> comparingByKey()
-					- comparingByKey() 是一个 static method
-		 */
 	}
 }

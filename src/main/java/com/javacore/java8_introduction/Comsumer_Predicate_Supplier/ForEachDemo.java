@@ -1,10 +1,9 @@
-package com.javacore.java8_introduction.demo;
+package com.javacore.java8_introduction.Comsumer_Predicate_Supplier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class ForEachDemo {
 

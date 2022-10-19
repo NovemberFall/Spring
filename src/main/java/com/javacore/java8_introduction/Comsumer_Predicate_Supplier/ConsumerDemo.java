@@ -1,4 +1,4 @@
-package com.javacore.java8_introduction.demo;
+package com.javacore.java8_introduction.Comsumer_Predicate_Supplier;
 
 import java.util.Arrays;
 import java.util.List;

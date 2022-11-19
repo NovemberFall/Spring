@@ -71,8 +71,10 @@ public class BiFunctionExample implements BiFunction<List<Integer>, List<Integer
 
     @Test
     void testBiFunction3() {
-        List<Integer> list1 = Stream.of(-4, -5, 1, 3, 4, 5, 6, 7, 9, 19, -2, -1).collect(Collectors.toList());
-        List<Integer> list2 = Stream.of(-1, -2, -10, -99, 11, 3, 53, 6, 7, 19).collect(Collectors.toList());
+        List<Integer> list1 = Stream.of(-4, -5, 1, 3, 4, 5, 6, 7, 9, 19, -2, -1)
+                .collect(Collectors.toList());
+        List<Integer> list2 = Stream.of(-1, -2, -10, -99, 11, 3, 53, 6, 7, 19)
+                .collect(Collectors.toList());
 
         BiFunction<List<Integer>, List<Integer>, List<Integer>> biFunction2 = (l1, l2) -> {
             return Stream.of(l1, l2)
@@ -144,8 +146,10 @@ public class BiFunctionExample implements BiFunction<List<Integer>, List<Integer
 
     @Test
     void testBiFunction_AddThen() {
-        List<Integer> list1 = Stream.of(1, 3, 4, 6, 7, 9, 19, -1, -2, -55, -9, -3, -4).collect(Collectors.toList());
-        List<Integer> list2 = Stream.of(-1, -2, 11, 3, -99, 43, 6, 7, 19, -4, -3).collect(Collectors.toList());
+        List<Integer> list1 = Stream.of(1, 3, 4, 6, 7, 9, 19, -1, -2, -55, -9, -3, -4)
+                .collect(Collectors.toList());
+        List<Integer> list2 = Stream.of(-1, -2, 11, 3, -99, 43, 6, 7, 19, -4, -3)
+                .collect(Collectors.toList());
 
 
         BiFunction<List<Integer>, List<Integer>, List<Integer>> biFunction2 = (l1, l2) -> {

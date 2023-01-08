@@ -13,7 +13,7 @@ class WithOut_IoC_DI {
         }
     }
 
-    class MySqlDatabase {
+    static class MySqlDatabase {
         public void persist(String data) {
             System.out.println("MySQL has persisted: " + data);
         }

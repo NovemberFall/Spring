@@ -1,4 +1,4 @@
-package com.example.spring.SpringCore.Inversion_Of_Control;
+package com.example.spring.SpringCore.Inversion_Of_Control.DataBase_Demo;
 
 class WithOut_IoC_DI {
     class User {
@@ -28,7 +28,7 @@ class WithOut_IoC_DI {
 /*
     Now the issue here is twofold(双重), the first issue is that if we wanted to write unit test
     for this User class. It would be nearly impossible because we rely on internally on a MySQL
-    instance.  So it's going to be really, really hard to test the internals of this code because
+    instance.  So it's going to be really hard to test the internals of this code because
     we can't pass in a mock instance of a database. second if we wanted to actually rip ourselves
     away from the internal implementation of connecting to mySql and utilize another database. We
     can't do that because hard-coded our Association of this user to a mySql database instance.

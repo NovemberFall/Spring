@@ -1,8 +1,8 @@
-package com.example.spring.SpringCore.Inversion_Of_Control;
+package com.example.spring.SpringCore.Inversion_Of_Control.DataBase_Demo;
 
 class With_IoC_DI_v1 {
     class User {
-        With_IoC_DI_v1.MySqlDatabase database;
+        MySqlDatabase database;
 
         public User(MySqlDatabase database) {
             this.database = database;

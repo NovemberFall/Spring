@@ -1,4 +1,4 @@
-package com.example.spring.SpringCore.Inversion_Of_Control;
+package com.example.spring.SpringCore.Inversion_Of_Control.DataBase_Demo;
 
 class With_IoC_DI_v2 {
     class User {
